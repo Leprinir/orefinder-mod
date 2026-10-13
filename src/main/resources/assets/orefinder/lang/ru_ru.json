@@ -1,0 +1,9 @@
+{
+  "item.orefinder.stone_ore_finder": "Каменный Искатель Руд",
+  "item.orefinder.iron_ore_finder": "Железный Искатель Руд",
+  "item.orefinder.gold_ore_finder": "Золотой Искатель Руд",
+  "item.orefinder.diamond_ore_finder": "Алмазный Искатель Руд",
+  "item.orefinder.emerald_master_finder": "Изумрудный Мастер-Искатель",
+  "item.orefinder.ore_finder_upgrade": "Кристалл Улучшения Искателя Руд",
+  "itemGroup.orefinder.ores": "OreFinder"
+}

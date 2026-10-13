@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " D ",
+    "GFD",
+    " G "
+  ],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "G": { "item": "minecraft:gold_ingot" },
+    "F": { "item": "orefinder:gold_ore_finder" }
+  },
+  "result": { "item": "orefinder:diamond_ore_finder" }
+}

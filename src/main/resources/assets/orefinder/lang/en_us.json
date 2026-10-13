@@ -1,0 +1,9 @@
+{
+  "item.orefinder.stone_ore_finder": "Stone Ore Finder",
+  "item.orefinder.iron_ore_finder": "Iron Ore Finder",
+  "item.orefinder.gold_ore_finder": "Gold Ore Finder",
+  "item.orefinder.diamond_ore_finder": "Diamond Ore Finder",
+  "item.orefinder.emerald_master_finder": "Emerald Master Finder",
+  "item.orefinder.ore_finder_upgrade": "Ore Finder Upgrade Crystal",
+  "itemGroup.orefinder.ores": "OreFinder"
+}

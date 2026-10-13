@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "SFS",
+    " S "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "minecraft:stone" },
+    "F": { "item": "orefinder:stone_ore_finder" }
+  },
+  "result": { "item": "orefinder:iron_ore_finder" }
+}

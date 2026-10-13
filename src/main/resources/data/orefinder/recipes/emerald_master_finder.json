@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "DFD",
+    " E "
+  ],
+  "key": {
+    "E": { "item": "minecraft:emerald" },
+    "D": { "item": "minecraft:diamond" },
+    "F": { "item": "orefinder:diamond_ore_finder" }
+  },
+  "result": { "item": "orefinder:emerald_master_finder" }
+}
