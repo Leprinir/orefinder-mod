@@ -5,14 +5,10 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.core.BlockPos;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredHolder;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -21,7 +17,7 @@ import java.util.*;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, OreFinderMod.MOD_ID);
 
-    // ─── Ore Finder Items (5 tiers) ────────────────────────────────
+    // ─── Register items FIRST (before OREFINDER_TAB) ────────────────
     public static final RegistryObject<Item> STONE_ORE_FINDER = ITEMS.register("stone_ore_finder",
         () -> new OreFinderItem(1, 8, OreTypes.getByMinTier(1)));
 
@@ -37,9 +33,17 @@ public class ModItems {
     public static final RegistryObject<Item> EMERALD_MASTER_FINDER = ITEMS.register("emerald_master_finder",
         () -> new OreFinderItem(5, 128, OreTypes.getByMinTier(5)));
 
-    // ─── Upgrade Items ──────────────────────────────────────────────
     public static final RegistryObject<Item> ORE_FINDER_UPGRADE = ITEMS.register("ore_finder_upgrade",
         OreFinderUpgradeItem::new);
+
+    // ─── Creative tab (uses already-declared items) ─────────────────
+    public static final CreativeModeTab OREFINDER_TAB = CreativeModeTab.builder(CreativeModeTab.Row.BOTTOM, 3)
+        .title(Component.translatable("itemGroup.orefinder.ores"))
+        .icon(() -> new ItemStack(STONE_ORE_FINDER.get()))
+        .displayItems((params, output) -> {
+            ITEMS.getEntries().forEach(entry -> output.accept(entry.get()));
+        })
+        .build();
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
@@ -56,8 +60,7 @@ public class ModItems {
         public OreFinderItem(int tier, int radius, OreTypes[] detectableOres) {
             super(new Properties()
                 .durability(256)
-                .stacksTo(1)
-                .tab(CreativeModeTab.TAB_TOOLS));
+                .stacksTo(1));
             this.tier = tier;
             this.radius = radius;
             this.detectableOres = detectableOres;
@@ -112,7 +115,7 @@ public class ModItems {
     // ─── Upgrade Item Logic ─────────────────────────────────────────
     public static class OreFinderUpgradeItem extends Item {
         public OreFinderUpgradeItem() {
-            super(new Properties().stacksTo(64).tab(CreativeModeTab.TAB_MATERIALS));
+            super(new Properties().stacksTo(64));
         }
     }
 }

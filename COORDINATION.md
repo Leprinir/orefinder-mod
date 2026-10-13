@@ -4,14 +4,11 @@
 
 ---
 
-## Активные агенты
+## Репозиторий
 
-| Агент | Статус | Текущая задача |
-|-------|--------|----------------|
-| orchestrator (main) | 🟢 онлайн | Инициализация проекта |
-| agent-coder | 🔴 ожидает | TASK-01 |
-| agent-assets | 🔴 ожидает | TASK-11 |
-| agent-tester | 🔴 ожидает | — |
+**https://github.com/Leprinir/orefinder-mod** (аккаунт: Leprinir)
+
+Owner: Leprinir | Repo: public | GitHub Actions CI: ✅ активен
 
 ---
 

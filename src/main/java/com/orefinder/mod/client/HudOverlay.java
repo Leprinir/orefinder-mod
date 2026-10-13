@@ -16,7 +16,8 @@ import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = OreFinderMod.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class HudOverlay {
@@ -95,10 +96,17 @@ public class HudOverlay {
         double nearestDist = Double.MAX_VALUE;
 
         for (OreTypes ore : ores) {
-            var blocks = player.level.getBlockStates(searchBox)
-                .filter(state -> state.is(ore.getBlock()))
-                .map(BlockPos::new)
-                .toList();
+            List<BlockPos> blocks = new ArrayList<>();
+            int minX = playerPos.getX() - radius, maxX = playerPos.getX() + radius;
+            int minY = playerPos.getY() - radius / 2, maxY = playerPos.getY() + radius / 2;
+            int minZ = playerPos.getZ() - radius, maxZ = playerPos.getZ() + radius;
+            for (int x = minX; x <= maxX; x++)
+                for (int y = minY; y <= maxY; y++)
+                    for (int z = minZ; z <= maxZ; z++) {
+                        BlockPos pos = new BlockPos(x, y, z);
+                        if (player.level().getBlockState(pos).is(ore.getBlock()))
+                            blocks.add(pos);
+                    }
 
             for (BlockPos orePos : blocks) {
                 double d = player.distanceToSqr(orePos.getX(), orePos.getY(), orePos.getZ());
