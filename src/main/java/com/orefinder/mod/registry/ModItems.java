@@ -59,8 +59,7 @@ public class ModItems {
 
         public OreFinderItem(int tier, int radius, OreTypes[] detectableOres) {
             super(new Properties()
-                .durability(256)
-                .stacksTo(1));
+                .durability(256));
             this.tier = tier;
             this.radius = radius;
             this.detectableOres = detectableOres;

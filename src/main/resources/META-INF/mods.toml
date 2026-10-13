@@ -1,26 +1,27 @@
-[molang.versions]
-all = "*"
+modLoader="javafml"
+loaderVersion="[3,)"
+license="MIT"
 
 [[mods]]
-modid = "orefinder"
-version = "${mod_version}"
-displayName = "OreFinder"
-authors = "MultiAgent Team"
-description = '''
+modId="orefinder"
+version="1.0.0"
+displayName="OreFinder"
+authors="MultiAgent Team"
+description='''
 A survival-friendly ore scanner item that helps players find ores.
-Upgradeable across 5 tiers. Right-click to scan, Shift+Right-click to select ore type.
+Upgradeable across 5 tiers. Right-click to activate, Shift+Right-click to select ore type.
 '''
 
 [[dependencies.orefinder]]
-modId = "forge"
-mandatory = true
-versionRange = "[55,)"
-ordering = "NONE"
-side = "BOTH"
+modId="forge"
+mandatory=true
+versionRange="[47.4.10,)"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.orefinder]]
-modId = "minecraft"
-mandatory = true
-versionRange = "[1.20.1,)"
-ordering = "NONE"
-side = "BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,)"
+ordering="NONE"
+side="BOTH"

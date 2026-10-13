@@ -1,6 +1,7 @@
 package com.orefinder.mod;
 
 import com.mojang.logging.LogUtils;
+import com.orefinder.mod.client.OreFinderParticleHandler;
 import com.orefinder.mod.registry.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -24,6 +25,7 @@ public class OreFinderMod {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new OreFinderParticleHandler());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
